@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restapp-deployment
+  labels:
+    app: restapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: restapp
+  template:
+    metadata:
+      labels:
+        app: restapp
+    spec:
+      containers:
+      - name: restapp
+        image: docker.io/nithunithin/rest_api:latest
+        ports:
+        - containerPort: 8080
+
